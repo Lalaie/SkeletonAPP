@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <h1>SkeletonAPP</h1>
+      <p>Aqui comienza todo</p>
+    </ion-label>
+  </ion-title>
+  
+  <div class="espacio">
+    <form (ngSubmit)="submitForm()">
+      <ion-title class="ion-text-center">
+        <ion-label>
+          <h1>Bienvenido!</h1>
+        </ion-label>
+      </ion-title>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="formData.Usuario" name="Usuario" required=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="formData.Password" name="Password" required=""></ion-input>
+      </ion-item>
+      <ion-button expand="full" type="submit" color="success" class="submit-button" (click)="enviarDatos()">Ingresar</ion-button>
+    </form>
+  </div>
+</ion-content>

@@ -1,20 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      SkeletonAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-title class="ion-text-center ion-padding-top">
+    <ion-label>
+      <h1>Bienvenido!</h1>
+      <p>Usuario: {{UsuarioRecibido}}</p>
+    </ion-label>
+  </ion-title>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <b class="ion-text-center">
+    <h4>Información Adicional</h4>
+  </b>
+
+  <form (ngSubmit)="submitForm()">
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="formHome.Nombre" name="Nombre" required=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Apellido</ion-label>
+      <ion-input type="password" [(ngModel)]="formHome.Apellido" name="Apellido" required=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nivel Educación</ion-label>
+      <ion-select placeholder="Seleccione nivel" [(ngModel)]="formHome.Nivel">
+        <ion-select-option *ngFor="let nivel of educacion" [value]="nivel.id">{{nivel.nivel}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Fecha Nacimiento</ion-label>
+      <ion-input type="date" [(ngModel)]="formHome.Fecha"></ion-input>
+    </ion-item>
+    <ion-row class="ion-padding-top ion-padding-left">
+      <ion-col col-3><ion-button shape="block" color="warning">Limpiar</ion-button></ion-col>
+      <ion-col col-3><ion-button shape="block" color="dark">Mostrar</ion-button></ion-col>
+    </ion-row>
+  </form>
 </ion-content>
