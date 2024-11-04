@@ -1,15 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title name="SkeletonAPP-header-home">
       SkeletonAPP
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-title class="ion-text-center ion-padding-top">
+  <ion-title class="ion-text-center ion-padding-top" name="bienvenido-home">
     <ion-label>
-      <h1>Bienvenido!</h1>
+      <h2>Bienvenido!</h2>
       <p>Usuario: {{UsuarioRecibido}}</p>
     </ion-label>
   </ion-title>
@@ -18,28 +21,54 @@
     <h4>Información Adicional</h4>
   </b>
 
-  <form (ngSubmit)="submitForm()">
-    <ion-item>
-      <ion-label position="stacked">Nombre</ion-label>
-      <ion-input type="text" [(ngModel)]="formHome.Nombre" name="Nombre" required=""></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Apellido</ion-label>
-      <ion-input type="password" [(ngModel)]="formHome.Apellido" name="Apellido" required=""></ion-input>
-    </ion-item>
+  <form>
+    <ion-card #card>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="formHome.Nombre" name="Nombre" required=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input type="text" [(ngModel)]="formHome.Apellido" name="Apellido" required=""></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
     <ion-item>
       <ion-label position="stacked">Nivel Educación</ion-label>
-      <ion-select placeholder="Seleccione nivel" [(ngModel)]="formHome.Nivel">
+      <ion-select placeholder="Seleccione nivel" [(ngModel)]="formHome.Nivel" name="Nivel">
         <ion-select-option *ngFor="let nivel of educacion" [value]="nivel.id">{{nivel.nivel}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Fecha Nacimiento</ion-label>
-      <ion-input type="date" [(ngModel)]="formHome.Fecha"></ion-input>
+      <mat-form-field class="ion-padding-top">
+        <mat-label>MM/DD/YYYY</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="formHome.Fecha" name="Fecha">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </ion-item>
     <ion-row class="ion-padding-top ion-padding-left">
-      <ion-col col-3><ion-button shape="block" color="warning">Limpiar</ion-button></ion-col>
-      <ion-col col-3><ion-button shape="block" color="dark">Mostrar</ion-button></ion-col>
+      <ion-col col-3><ion-button shape="block" color="warning" (click)="play()">Limpiar</ion-button></ion-col>
+      <ion-col col-3><ion-button shape="block" color="dark" (click)="setOpen(true)">Mostrar</ion-button></ion-col>
+      <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title name="Usuario-Modal">Usuario</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <p>
+              Su nombre es {{formHome.Nombre}} {{formHome.Apellido}}
+            </p>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
     </ion-row>
   </form>
 </ion-content>

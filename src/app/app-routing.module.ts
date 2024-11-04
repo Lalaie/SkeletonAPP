@@ -15,6 +15,18 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'lista',
+    loadChildren: () => import('./pages/lista/lista.module').then( m => m.ListaPageModule)
+  },
+  {
+    path: 'visto',
+    loadChildren: () => import('./pages/visto/visto.module').then( m => m.VistoPageModule)
+  },
+  {
+    path: 'ver-mas-tarde',
+    loadChildren: () => import('./pages/ver-mas-tarde/ver-mas-tarde.module').then( m => m.VerMasTardePageModule)
+  },
 ];
 
 @NgModule({

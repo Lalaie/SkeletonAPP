@@ -18,9 +18,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(){
-  }
-
   enviarDatos(){
     let navigationExtras: NavigationExtras = {
       state: {

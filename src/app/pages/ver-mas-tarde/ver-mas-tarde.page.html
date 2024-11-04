@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ver más tarde</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title class="ion-text-center ion-padding-top">Tu lista</ion-title>
+
+  <ion-card #card>
+    <img alt="Naruto" src='/assets/img/series/naruto.jpg' />
+    <ion-card-header>
+      <ion-card-title>Naruto</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-col col-3><ion-button shape="block" color="danger" (click)="eliminar()">Eliminar</ion-button></ion-col>
+      <ion-col col-3><ion-button shape="block" color="success" (click)="visto()">Visto</ion-button></ion-col>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
