@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular
 import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
-
+import { GetapiService } from 'src/app/services/getapi.service';
 
 @Component({
   selector: 'app-ver-mas-tarde',
@@ -10,13 +10,19 @@ import { AnimationController, IonCard } from '@ionic/angular';
   styleUrls: ['./ver-mas-tarde.page.scss'],
 })
 export class VerMasTardePage implements OnInit {
+  getdata:any[]=[];
   @ViewChild(IonCard, { read: ElementRef })
   card!: ElementRef<HTMLIonCardElement>;
 
   private cardB!: Animation;
   private cardC!: Animation;
 
-  constructor(private animationCtrl: AnimationController) { }
+  constructor(private animationCtrl: AnimationController, public _services: GetapiService) {
+    this._services.getdata<any[]>("").subscribe(data => {
+      this.getdata = data
+      console.log(this.getdata);
+    })
+   }
 
   ngAfterViewInit() {
     this.cardB = this.animationCtrl

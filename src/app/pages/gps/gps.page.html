@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>GPS</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="latitude && longitude && city">
+    <ion-card-header>
+      <ion-card-title>Ubicación:</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <p>Latitud {{latitude}}</p>
+        <p>Longitud {{longitude}}</p>
+        <p>Ciudad {{city}}</p>
+    </ion-card-content>
+  </ion-card>
+  <p *ngIf="error">Error: {{error}}</p>
+  <p *ngIf="!latitude && !longitude && !city"> Cargando... </p>
+</ion-content>

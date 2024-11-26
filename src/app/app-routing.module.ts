@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'ver-mas-tarde',
     loadChildren: () => import('./pages/ver-mas-tarde/ver-mas-tarde.module').then( m => m.VerMasTardePageModule)
   },
+  {
+    path: 'gps',
+    loadChildren: () => import('./pages/gps/gps.module').then( m => m.GpsPageModule)
+  },
 ];
 
 @NgModule({

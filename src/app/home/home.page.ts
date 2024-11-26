@@ -15,6 +15,7 @@ export class HomePage {
 
   private animation!: Animation;
 
+  user: any="";
   UsuarioRecibido: string ="";
   PasswordRecibida: string ="";
 
@@ -68,7 +69,13 @@ export class HomePage {
     this.isModalOpen = isOpen;
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
   ngOnInit() {
+    this.user = localStorage.getItem('user');
     this.menu.close("mainMenu");
   }
 }

@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';  
 import { MatIconModule } from '@angular/material/icon';
+import { DatosComponent } from '../components/datos/datos.component'
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatIconModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, DatosComponent]
 })
 export class HomePageModule {}

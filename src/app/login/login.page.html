@@ -1,13 +1,13 @@
 <ion-content [fullscreen]="true">
   <ion-title class="ion-padding-top ion-text-center" name="SkeletonAPP-title">
     <ion-label>
-      <h1>SkeletonAPP</h1>
+      <h1>Elden Log</h1>
       <p>Aqui comienza todo</p>
     </ion-label>
   </ion-title>
   
   <div class="espacio">
-    <form>
+    <form (submit)="addUser($event)">
       <ion-title class="ion-text-center" name="login-bienvenido">
         <ion-label>
           <h2>Bienvenido!</h2>
@@ -21,7 +21,26 @@
         <ion-label position="floating">Password</ion-label>
         <ion-input type="password" [(ngModel)]="formData.Password" name="Password" required=""></ion-input>
       </ion-item>
+      <ion-button expand="full" type="submit">Registrar Usuario</ion-button>
       <ion-button expand="full" type="submit" color="success" class="submit-button" (click)="enviarDatos()">Ingresar</ion-button>
     </form>
+  </div>
+
+  <div class="espacio">
+    <ion-list [inset]="true">
+      <ion-item-sliding *ngFor="let usuario of usuarios">
+        <ion-item [button]="true">
+          <ion-avatar aria-hidden="true" slot="start">
+            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>{{usuario.user}}</ion-label>
+        </ion-item>
+        <ion-item-options slot="end">
+          <ion-item-option color="danger" expandable="true" (click)="deleteUser(usuario.id)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
   </div>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title name="SkeletonAPP-header-home">
-      SkeletonAPP
+      Elder Log
     </ion-title>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -13,7 +13,7 @@
   <ion-title class="ion-text-center ion-padding-top" name="bienvenido-home">
     <ion-label>
       <h2>Bienvenido!</h2>
-      <p>Usuario: {{UsuarioRecibido}}</p>
+      <p>Usuario: {{user}}</p>
     </ion-label>
   </ion-title>
 
@@ -63,12 +63,12 @@
             </ion-toolbar>
           </ion-header>
           <ion-content class="ion-padding">
-            <p>
-              Su nombre es {{formHome.Nombre}} {{formHome.Apellido}}
-            </p>
+            <app-datos [dato1]="formHome.Nombre" [dato2]="formHome.Apellido"></app-datos>
           </ion-content>
         </ng-template>
       </ion-modal>
     </ion-row>
   </form>
+
+  <ion-button shape="block" color="danger" (click)="logout()">Log Out</ion-button>
 </ion-content>
