@@ -17,13 +17,15 @@ export class VistoPage implements OnInit {
   constructor(private animationCtrl: AnimationController) { }
 
   ngAfterViewInit() {
-    this.animation = this.animationCtrl
-      .create()
-      .addElement(this.card.nativeElement)
-      .duration(1000)
-      .iterations(1)
-      .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
-      .fromTo('opacity', '1', '0.2');
+    if(this.card){
+      this.animation = this.animationCtrl
+        .create()
+        .addElement(this.card.nativeElement)
+        .duration(1000)
+        .iterations(1)
+        .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
+        .fromTo('opacity', '1', '0.2');
+    }
   }
 
 

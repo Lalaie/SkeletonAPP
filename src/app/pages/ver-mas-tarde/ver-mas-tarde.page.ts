@@ -25,27 +25,29 @@ export class VerMasTardePage implements OnInit {
    }
 
   ngAfterViewInit() {
-    this.cardB = this.animationCtrl
-      .create()
-      .addElement(this.card.nativeElement)
-      .fill('none')
-      .duration(1000)
-      .keyframes([
-        { offset: 0, transform: 'scale(1)', opacity: '1' },
-        { offset: 0.5, transform: 'scale(1.2)', opacity: '0.3' },
-        { offset: 1, transform: 'scale(1)', opacity: '1' },
-      ]);
+    if(this.card){
+      this.cardB = this.animationCtrl
+        .create()
+        .addElement(this.card.nativeElement)
+        .fill('none')
+        .duration(1000)
+        .keyframes([
+          { offset: 0, transform: 'scale(1)', opacity: '1' },
+          { offset: 0.5, transform: 'scale(1.2)', opacity: '0.3' },
+          { offset: 1, transform: 'scale(1)', opacity: '1' },
+        ]);
 
-    this.cardC = this.animationCtrl
-      .create()
-      .addElement(this.card.nativeElement)
-      .fill('none')
-      .duration(1000)
-      .keyframes([
-        { offset: 0, transform: 'scale(1)', opacity: '0.5' },
-        { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
-        { offset: 1, transform: 'scale(1)', opacity: '0.5' },
-      ]);
+      this.cardC = this.animationCtrl
+        .create()
+        .addElement(this.card.nativeElement)
+        .fill('none')
+        .duration(1000)
+        .keyframes([
+          { offset: 0, transform: 'scale(1)', opacity: '0.5' },
+          { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
+          { offset: 1, transform: 'scale(1)', opacity: '0.5' },
+        ]);
+    }
   }
 
 

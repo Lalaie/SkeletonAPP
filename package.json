@@ -36,6 +36,7 @@
     "@ionic/angular": "^8.0.0",
     "cordova-plugin-nativegeocoder": "^3.5.1",
     "cordova-sqlite-storage": "^6.1.0",
+    "cypress": "^13.16.0",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

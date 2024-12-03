@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChildren, ViewChild  } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
 import { MenuController } from '@ionic/angular'; 
@@ -16,8 +16,6 @@ export class HomePage {
   private animation!: Animation;
 
   user: any="";
-  UsuarioRecibido: string ="";
-  PasswordRecibida: string ="";
 
   educacion:any[]=[
     {id:1, nivel:"Educación Incompleta"},
@@ -33,13 +31,7 @@ export class HomePage {
     Fecha:''
   }
 
-  constructor(private animationCtrl: AnimationController, private activaterouter: ActivatedRoute, private router: Router, private menu: MenuController) {
-    this.activaterouter.queryParams.subscribe(params =>{
-      if(this.router.getCurrentNavigation()?.extras?.state){
-        this.UsuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['UsuarioEnviado'];
-        this.PasswordRecibida = this.router.getCurrentNavigation()?.extras?.state?.['PasswordEnviada'];
-      }
-    })
+  constructor(private animationCtrl: AnimationController, private router: Router, private menu: MenuController) {
   }
 
   ngAfterViewInit() {

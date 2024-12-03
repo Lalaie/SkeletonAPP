@@ -37,6 +37,7 @@ export class ListaPage implements OnInit {
   constructor(private animationCtrl: AnimationController) { }
 
   ngAfterViewInit() {
+    if(this.card){
       this.cardB = this.animationCtrl
         .create()
         .addElement(this.card.nativeElement)
@@ -58,6 +59,7 @@ export class ListaPage implements OnInit {
           { offset: 0.5, transform: 'scale(0.8)', opacity: '1' },
           { offset: 1, transform: 'scale(1)', opacity: '0.5' },
         ]);
+    }
   }
 
 
