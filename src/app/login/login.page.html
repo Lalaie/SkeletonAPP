@@ -15,14 +15,14 @@
       </ion-title>
       <ion-item>
         <ion-label position="floating">Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="formData.Usuario" name="Usuario" required=""></ion-input>
+        <ion-input type="text" data-testid="Usuario-input" [(ngModel)]="formData.Usuario" name="Usuario" required=""></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" [(ngModel)]="formData.Password" name="Password" required=""></ion-input>
+        <ion-input type="password" data-testid="Password-input" [(ngModel)]="formData.Password" name="Password" required=""></ion-input>
       </ion-item>
-      <ion-button expand="full" type="submit">Registrar Usuario</ion-button>
-      <ion-button expand="full" type="submit" color="success" class="submit-button" (click)="enviarDatos()">Ingresar</ion-button>
+      <ion-button expand="full" type="submit" color="warning" data-testid="Registrar-button">Registrar Usuario</ion-button>
+      <ion-button expand="full" type="submit" color="success" class="submit-button" data-testid="IniciarSesion-button" (click)="enviarDatos()">Ingresar</ion-button>
     </form>
   </div>
 
